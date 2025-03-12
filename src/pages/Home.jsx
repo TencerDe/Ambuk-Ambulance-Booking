@@ -1,13 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import RideBooking from "./RideBooking";
 
 const Home = () => {
-    return (
-        <div>
-            <h1>Welcome to Ambuk, Ambulance booking service</h1>
-            <Link to="/login">Login</Link> | <Link to="/signup">Signup</Link>
-        </div>
-    );
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <div>
+      <h1>Welcome to Ambuk</h1>
+      <button onClick={() => setIsModalOpen(true)} className="book-btn">Book a Ride</button>
+
+      {/* Ride Booking Modal */}
+      <RideBooking isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </div>
+  );
 };
 
 export default Home;

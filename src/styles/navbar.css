@@ -1,4 +1,4 @@
-/* Basic Navbar Styles */
+/* Base Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -7,11 +7,13 @@
     background: #007bff;
     color: white;
     position: relative;
+    transition: background 0.3s ease-in-out;
   }
   
   .logo {
     font-size: 24px;
     font-weight: bold;
+    transition: transform 0.3s ease-in-out;
   }
   
   /* Navigation Links */
@@ -25,9 +27,31 @@
     color: white;
     text-decoration: none;
     font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease-in-out;
   }
   
-  /* Hamburger Button (Hidden by Default on Large Screens) */
+  /* Hover Effect */
+  .nav-links li a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+  }
+  
+  /* Highlight Active Page with Smooth Transition */
+  .nav-links li a.active {
+    background: white;
+    color: #007bff;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  /* Active Link Hover Effect */
+  .nav-links li a.active:hover {
+    transform: scale(1.08);
+  }
+  
+  /* Hamburger Button */
   .hamburger {
     display: none;
     font-size: 28px;
@@ -35,6 +59,11 @@
     border: none;
     color: white;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .hamburger:hover {
+    transform: rotate(90deg);
   }
   
   /* Mobile Responsive */
@@ -52,15 +81,30 @@
       background: #007bff;
       width: 100%;
       padding: 10px 0;
+      transition: opacity 0.3s ease-in-out;
     }
   
     .nav-links.open {
       display: flex;
+      opacity: 1;
+      animation: fadeIn 0.3s ease-in-out;
     }
   
     .nav-links li {
       text-align: center;
       padding: 10px 0;
+    }
+  }
+  
+  /* Fade-In Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
   
