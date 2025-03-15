@@ -10,6 +10,11 @@ const Navbar = () => {
     <nav className="navbar">
       <h1 className="logo">Ambuk</h1>
 
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/dashboard">Dashboard</Link></li>
+      </ul>
+
       <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
         ☰
       </button>
@@ -46,5 +51,7 @@ const Navbar = () => {
     </nav>
   );
 };
+
+
 
 export default Navbar;
